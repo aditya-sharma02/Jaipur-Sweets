@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header_files}}
+</head>
+
+<body>
+    {{>navbar}}
+
+
+    <h3 style="text-align: center;">We Are Comming To Deliver The Food</h3>
+    <img src="images/delv1.png" class="rounded mx-auto d-block mb-3" width="40%">
+
+    {{#if data.length}}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Food</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+            {{#each this}}
+            <tr>
+                <td>{{this.name}}</td>
+                <td>{{this.quantity}}</td>
+                <td>{{this.price}}</td>
+            </tr>
+            {{/each}}
+            {{/each}}
+        </tbody>
+    </table>
+    <div class="div_button_done">
+        <button class="button_done"><a class="link" href="/delivered">Delivered</a></button>
+    </div>
+    {{else}}
+    {{/if}}
+
+    {{>footer}}
+    {{>script}}
+</body>
+
+</html>

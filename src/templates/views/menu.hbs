@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header_files}}
+</head>
+
+<body>
+
+    {{>navbar}}
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center;">
+        {{#each data}}
+        <div class="card mb-3" style="max-width: 500px; margin: 20px; position:relative">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/{{this.fname}}.jpg" class="img-fluid rounded-start" alt="{{this.fname}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.fname}}</h5>
+                        <span>
+                            <p class="card-text">{{this.type}}</p>
+                        </span><span>
+                            <p class="card-text">{{this.cost}}. Rs /Unit</p>
+                        </span>
+                        <button class="button_menu"><a style="color:rgb(215, 211, 222); text-decoration:none;"
+                                href="/addtochart?id={{this.fid}}"><i class="fa-duotone fa-plus"></i></a></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    <div class="div_button_done">
+        <button class="button_done"><a style="color:rgb(230, 227, 227);text-decoration:none;padding: 3px 16px;" href="/final"><i class="fa-solid fa-cart-shopping"></i></a></button>
+    </div>
+
+
+
+    {{>footer}}
+    {{>script}}
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header_files}}
+</head>
+
+<body>
+    {{>navbar}}
+
+
+
+    <div class="row row-cols-1 row-cols-md-3 g-4" style="justify-content: center; margin: 30px 5px">
+        <div class="card mb-3" style="max-width: 500px; margin: 20px; position:relative">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="images/{{data.fname}}.jpg" class="img-fluid rounded-start" alt="{{this.fname}}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{data.fname}}</h5>
+                        <span>
+                            <p class="card-text">{{data.type}}</p>
+                        </span><span>
+                            <p class="card-text">{{data.cost}}. Rs /Unit</p>
+                        </span>
+                        <button class="button_menu"><a style="color:rgb(215, 211, 222); text-decoration:none;"
+                                href="/addtochart?id={{data.fid}}"><i class="fa-duotone fa-plus"></i></a></button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="display:flex; justify-content:center">
+        <div>
+            <form action="/addtochart" method="POST" style="text-align: center;" >
+                <input type="hidden" class="form-control" value="{{data.fid}}" placeholder="Enter the Quantity"
+                    name="fid">
+                <input type="hidden" class="form-control" value="{{data.fname}}" placeholder="Enter the Quantity"
+                    name="fname">
+                <input type="hidden" class="form-control" value="{{data.cost}}" placeholder="Enter the Quantity"
+                    name="cost">
+                <input type="number" class="form-control" placeholder="Enter the Quantity" required name="quantity">
+                <br>
+                <textarea class="form-control" placeholder="Enter the description" cols="50" rows="5" name="extra"></textarea>
+                <br>
+                <input class="button_done" type="submit" value="Add To Chart">
+            </form>
+        </div>
+    </div>
+    {{>footer}}
+    {{>script}}
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header_files}}
+</head>
+
+<body>
+    {{>navbar}}
+
+    {{#if data.chart.length}}
+    <div class="container mt-5">
+        <div class="row ">
+            <div class="col">
+                {{#each data.chart}}
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="images/{{this.name}}.jpg" class="img-fluid rounded-start" alt="{{this.name}}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body" style="position: relative;">
+                                <h5 class="card-title">{{this.name}}</h5>
+                                <p class="card-text">Quantity : {{this.quantity}}</p>
+                                <span>
+                                    <p class="card-text">Cost Per Unit : {{this.cost}}</p>
+                                </span>
+                                <div class="button_menu">
+                                    <a class="link" href="/deletethisitem?id={{this._id}}"><i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+            <div class="col" style="position:relative">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Food</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each data.chart}}
+                        <tr>
+                            <td>{{this.name}}</td>
+                            <td>{{this.quantity}}</td>
+                            <td>{{this.price}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+                <div style="position: absolute;right:16%;"><span>Total price : </span>{{tprice}}</div>
+
+
+                <br><br><br>
+                {{!-- alert --}}
+                <!-- Button trigger modal -->
+                <button class="button_done"  type="button" style="position: absolute; left:40%;bottom:0%" class="btn btn-secondary"
+                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <a class="link" href="/deliveryandsavetohistory"> Place Order</a>
+
+
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Thanks For Purchasing</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                Yeahh!!! Your Order Is Recorded Successfully .....
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <h3 style="text-align: center;margin-top: 25px;">OOPPS!!! Please Add Items From Menu</h3>
+    <img src="images/emptycart.png" class="rounded mx-auto d-block mb-3" width="40%">
+    <div class="div_button_done">
+        <button class="btn btn-primary button_done"><a
+                style="color:rgb(230, 227, 227);text-decoration:none;padding: 3px 16px;" href="/fooditem">Go To
+                Menu</a></button>
+    </div>
+    {{/if}}
+
+
+
+
+    {{>footer}}
+    {{>script}}
+</body>
+
+</html>

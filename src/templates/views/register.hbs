@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>header_files}}
+</head>
+
+<body>
+   
+    <div class="background_registraton">
+         {{>navbarbeforelogin}}
+        <div class="background_index_text">
+            <h1 style="font-family: 'Dancing Script', cursive; color:rgb(103, 98, 91);font-size:7vh;font-weight:bolder"> Sign UP</h1>
+            <br>
+            <form action="/register" method="POST">
+                <div class="container register_box">
+                    <div class="row ">
+                        <div class="col">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="First Name *" value=""
+                                    name="fname">
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Email *" value="" name="email">
+                            </div>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Contact No *" value=""
+                                    name="phone">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Password *" value=""
+                                    name="password">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Last Name *" value="" name="lname">
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="male">
+                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" value="female">
+                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            </div>
+                            <br><br>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Age *" value="" name="age">
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" placeholder="Confirm Password *" value=""
+                                    name="confirmpassword">
+                            </div>
+                            <input type="submit" class="btnRegister" style="background-color: bisque;font-size:larger; padding:2px 7px; border-radius:6px" value="Register" />
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {{>footer}}
+    {{>script}}
+</body>
+
+</html>
